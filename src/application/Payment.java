@@ -118,6 +118,14 @@ public class Payment {
 	        RadioButton onlineBankingRadio = new RadioButton("Online Banking");
 	        RadioButton cashRadio = new RadioButton("Cash");
 
+			ToggleGroup paymentMethod = new ToggleGroup();
+        	creditCardRadio.setToggleGroup(paymentMethod);
+        	debitCardRadio.setToggleGroup(paymentMethod);
+			onlineBankingRadio.setToggleGroup(paymentMethod);
+			cashRadio.setToggleGroup(paymentMethod);
+
+			
+
 	        paymentMethods.getChildren().addAll(creditCardRadio, debitCardRadio, onlineBankingRadio, cashRadio);
 	        paymentGrid.add(paymentMethods, 1, 0);
 
@@ -159,6 +167,59 @@ public class Payment {
 	        cashPaymentLabel.setLayoutY(404);
 	        cashPaymentLabel.setFont(Font.font("System Bold", 12));
 	        root.getChildren().add(cashPaymentLabel);
+
+			creditCardRadio.setOnAction(event ->{
+				cardNumberLabel.setVisible(true);
+				cardNumberField.setVisible(true);
+				expDateLabel.setVisible(true);
+				expDateField.setVisible(true);
+				cvvLabel.setVisible(true);
+				cvvField.setVisible(true);
+				mobileNumberLabel.setVisible(false);
+				mobileNumberField.setVisible(false);
+				pinLabel.setVisible(false);
+				pinField.setVisible(false);
+				cashPaymentLabel.setVisible(false);
+			});
+			debitCardRadio.setOnAction(event ->{
+				cardNumberLabel.setVisible(true);
+				cardNumberField.setVisible(true);
+				expDateLabel.setVisible(true);
+				expDateField.setVisible(true);
+				cvvLabel.setVisible(true);
+				cvvField.setVisible(true);
+				mobileNumberLabel.setVisible(false);
+				mobileNumberField.setVisible(false);
+				pinLabel.setVisible(false);
+				pinField.setVisible(false);
+				cashPaymentLabel.setVisible(false);
+			});
+			onlineBankingRadio.setOnAction(event ->{
+				cardNumberLabel.setVisible(false);
+				cardNumberField.setVisible(false);
+				expDateLabel.setVisible(false);
+				expDateField.setVisible(false);
+				cvvLabel.setVisible(false);
+				cvvField.setVisible(false);
+				mobileNumberLabel.setVisible(true);
+				mobileNumberField.setVisible(true);
+				pinLabel.setVisible(true);
+				pinField.setVisible(true);
+				cashPaymentLabel.setVisible(false);
+			});
+			cashRadio.setOnAction(event ->{
+				cardNumberLabel.setVisible(false);
+				cardNumberField.setVisible(false);
+				expDateLabel.setVisible(false);
+				expDateField.setVisible(false);
+				cvvLabel.setVisible(false);
+				cvvField.setVisible(false);
+				mobileNumberLabel.setVisible(false);
+				mobileNumberField.setVisible(false);
+				pinLabel.setVisible(false);
+				pinField.setVisible(false);
+				cashPaymentLabel.setVisible(true);
+			});
 
 	        // Set Scene and Stage
 	        Scene scene = new Scene(root, 628, 479);

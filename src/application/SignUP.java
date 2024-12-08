@@ -148,7 +148,7 @@ public class SignUP  {
             String address = addressField.getText();
             String password = passwordField.getText();
             boolean isSeller = sellerRadio.isSelected();
-            boolean isCustomer = customerRadio.isSelected();
+            //boolean isCustomer = customerRadio.isSelected();
 
             
             if (username.isEmpty() || email.isEmpty() || password.isEmpty() || accountType==null) {
